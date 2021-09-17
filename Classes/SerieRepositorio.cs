@@ -7,27 +7,27 @@ namespace DIO.series.Classes
         private List<Serie> listaSerie = new List<Serie>();
         
         List<T> Lista() {
-            //Mostrar elementos da lista
+            return listaSerie;
         }
         
-        void insert(T entity) {
-            //Inserir novo elemento na lista
+        void Insert(T entity) {
+            listaSerie[id].Add(entity);
         }
         
-        T returnById(int id) {
-            //Procurar elemento na lista pelo id
+        T ReturnById(int id) {
+            return listaSerie[id];
         }
         
-        void update(int id, T entity) {
-            //Substituir um elemento na lista
+        void Update(int id, T entity) {
+            listaSerie[id] = entity;
         }
 
-        void delete(int id) {
-            //Deletar elemento da lista
+        void Delete(int id) {
+            listaSerie[id].Excluir();
         }
 
-        int nextId() {
-            //Retorna próximo id
+        int NextId() {
+            return listaSerie.Count;
         }
     }
 }
