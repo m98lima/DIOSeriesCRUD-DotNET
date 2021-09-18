@@ -26,6 +26,7 @@ namespace DIO.Series.Classes
             result += "Título: " + this.Titulo + Environment.NewLine;
             result += "Descrição: " + this.Descricao + Environment.NewLine;
             result += "Ano de lançamento: " + this.Ano + Environment.NewLine;
+            result += "Excluído: " + this.Excluido + Environment.NewLine;
             return result;
         }
 

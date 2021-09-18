@@ -27,6 +27,7 @@ namespace DIO.Series
                         ExcluirSerie();
                         break;
                     case "5":
+                        VisualizarSerie();
                         break;
                     case "C":
                         Console.Clear();
@@ -94,9 +95,19 @@ namespace DIO.Series
         private static void ExcluirSerie() {
             int idExcluir = LerIdSerie("excluir");
             
-            if (idAtualizar == -1)
+            if (idExcluir == -1)
                 return;
             repositorio.Delete(idExcluir);
+            Console.WriteLine("Série excluída");
+        }
+
+        private static void VisualizarSerie() {
+            int idVisualizar = LerIdSerie("visualizar");
+            
+            if (idVisualizar == -1)
+                return;
+            var serie = repositorio.ReturnById(idVisualizar);
+            Console.WriteLine(serie);
         }
 
 
