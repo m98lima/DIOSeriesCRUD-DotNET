@@ -24,6 +24,7 @@ namespace DIO.Series
                         AtualizarSerie();
                         break;
                     case "4":
+                        ExcluirSerie();
                         break;
                     case "5":
                         break;
@@ -89,6 +90,18 @@ namespace DIO.Series
             Serie novaSerie = CriarNovaSerie(idAtualizar);
             repositorio.Update(idAtualizar, novaSerie);
         }
+
+        private static void ExcluirSerie() {
+            int idExcluir = LerIdSerie("excluir");
+            
+            if (idAtualizar == -1)
+                return;
+            repositorio.Delete(idExcluir);
+        }
+
+
+
+
 
         private static Serie CriarNovaSerie(int id) {            
             Console.WriteLine("Selecione o gênero entre as opções abaixo: ");
