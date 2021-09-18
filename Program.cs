@@ -75,7 +75,12 @@ namespace DIO.Series
 
         private static void InserirSerie() {
             Console.WriteLine("Inserir nova série");
-            
+            Serie novaSerie = CriarNovaSerie(repositorio.NextId());            
+            repositorio.Insert(novaSerie);
+        }
+
+
+        private static Serie CriarNovaSerie(int id) {            
             Console.WriteLine("Selecione o gênero entre as opções abaixo: ");
             foreach (int i in Enum.GetValues(typeof(Genero))) {
                 Console.WriteLine("{0}: {1}", i, Enum.GetName(typeof(Genero), i));
@@ -92,13 +97,13 @@ namespace DIO.Series
             Console.WriteLine("Digite a descrição da série: ");
             string entradaDescricao = Console.ReadLine();
 
-            Serie novaSerie = new Serie(repositorio.NextId(), 
+            Serie novaSerie = new Serie(id, 
                                         (Genero)entradaGenero, 
                                         entradaTitulo, 
                                         entradaDescricao, 
                                         entradaAno);
             
-            repositorio.Insert(novaSerie);
+            return novaSerie;
         }
     }
 }
