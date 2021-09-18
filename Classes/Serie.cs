@@ -8,7 +8,7 @@ namespace DIO.Series.Classes
         public string Titulo {get; private set;}
         public string Descricao {get; private set;}
         public int Ano {get; private set;}
-        private bool Excluido {get; set;}
+        public bool Excluido {get; private set;}
 
         public Serie (int id, Genero genero, string titulo, string descricao, int ano) {
             this.Id = id;

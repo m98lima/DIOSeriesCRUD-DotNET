@@ -61,6 +61,8 @@ namespace DIO.Series
             return opcaoUsuario;
         }
 
+
+
         private static void ListarSeries() {
             Console.WriteLine("Listar séries:");
 
@@ -72,7 +74,8 @@ namespace DIO.Series
             }
 
             foreach (var serie in lista) {
-                Console.WriteLine("#ID {0}: - {1}", serie.Id, serie.Titulo);
+                if (!serie.Excluido)
+                    Console.WriteLine("#ID {0}: - {1}", serie.Id, serie.Titulo);
             }
         }
 
@@ -113,7 +116,7 @@ namespace DIO.Series
 
 
 
-
+// Metodos refatorados
         private static Serie CriarNovaSerie(int id) {            
             Console.WriteLine("Selecione o gênero entre as opções abaixo: ");
             foreach (int i in Enum.GetValues(typeof(Genero))) {
