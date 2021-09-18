@@ -76,19 +76,16 @@ namespace DIO.Series
 
         private static void InserirSerie() {
             Console.WriteLine("Inserir nova série");
+
             Serie novaSerie = CriarNovaSerie(repositorio.NextId());            
             repositorio.Insert(novaSerie);
         }
 
         private static void AtualizarSerie() {
-            Console.WriteLine("Digite o id da série que deseja atualizar: ");
-            int idAtualizar = int.Parse(Console.ReadLine());
+            int idAtualizar = LerIdSerie("atualizar");
+            
             if (idAtualizar == -1)
                 return;
-            while ((0 > idAtualizar) || (idAtualizar >= repositorio.NextId())) {
-                Console.WriteLine("Id inválido, Digite o id da série que deseja atualizar: ");
-                idAtualizar = int.Parse(Console.ReadLine());
-            }
             Serie novaSerie = CriarNovaSerie(idAtualizar);
             repositorio.Update(idAtualizar, novaSerie);
         }
@@ -117,6 +114,16 @@ namespace DIO.Series
                                         entradaAno);
             
             return novaSerie;
+        }
+
+        private static int LerIdSerie(string funcao) {
+            Console.WriteLine("Digite o id da série que deseja {0}: ", funcao);
+            int idLido = int.Parse(Console.ReadLine());
+            while ((-1 > idLido) || (idLido >= repositorio.NextId())) {
+                Console.WriteLine("Id inválido, Digite o id da série que deseja {0}: ", funcao);
+                idLido = int.Parse(Console.ReadLine());
+            }
+            return idLido;
         }
     }
 }
