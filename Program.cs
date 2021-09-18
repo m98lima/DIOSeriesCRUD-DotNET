@@ -21,6 +21,7 @@ namespace DIO.Series
                         InserirSerie();
                         break;
                     case "3":
+                        AtualizarSerie();
                         break;
                     case "4":
                         break;
@@ -79,6 +80,18 @@ namespace DIO.Series
             repositorio.Insert(novaSerie);
         }
 
+        private static void AtualizarSerie() {
+            Console.WriteLine("Digite o id da série que deseja atualizar: ");
+            int idAtualizar = int.Parse(Console.ReadLine());
+            if (idAtualizar == -1)
+                return;
+            while ((0 > idAtualizar) || (idAtualizar >= repositorio.NextId())) {
+                Console.WriteLine("Id inválido, Digite o id da série que deseja atualizar: ");
+                idAtualizar = int.Parse(Console.ReadLine());
+            }
+            Serie novaSerie = CriarNovaSerie(idAtualizar);
+            repositorio.Update(idAtualizar, novaSerie);
+        }
 
         private static Serie CriarNovaSerie(int id) {            
             Console.WriteLine("Selecione o gênero entre as opções abaixo: ");
