@@ -1,4 +1,7 @@
-namespace DIO.series
+using System;
+using DIO.Series.Enums;
+
+namespace DIO.Series.Classes
 {
     public class Serie : EntidadeBase {
         public Genero Genero {get; private set;}

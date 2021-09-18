@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace DIO.series
+namespace DIO.Series.Interface
 {
     public interface IRepo<T> {
         List<T> Lista();

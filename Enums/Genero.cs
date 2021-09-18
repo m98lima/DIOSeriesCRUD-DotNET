@@ -1,4 +1,4 @@
-namespace DIO.series.Interface
+namespace DIO.Series.Enums
 {
     public enum Genero {
         acao = 1,

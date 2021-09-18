@@ -1,32 +1,33 @@
-using Sysyem;
-using namespace DIO.series.Interface;
+using System;
+using System.Collections.Generic;
+using DIO.Series.Interface;
 
-namespace DIO.series.Classes
+namespace DIO.Series.Classes
 {
     public class SerieRepositorio : IRepo<Serie> {
         private List<Serie> listaSerie = new List<Serie>();
         
-        List<T> Lista() {
+        public List<Serie> Lista() {
             return listaSerie;
         }
         
-        void Insert(T entity) {
-            listaSerie[id].Add(entity);
+        public void Insert(Serie entity) {
+            listaSerie.Add(entity);
         }
         
-        T ReturnById(int id) {
+        public Serie ReturnById(int id) {
             return listaSerie[id];
         }
         
-        void Update(int id, T entity) {
+        public void Update(int id, Serie entity) {
             listaSerie[id] = entity;
         }
 
-        void Delete(int id) {
+        public void Delete(int id) {
             listaSerie[id].Excluir();
         }
 
-        int NextId() {
+        public int NextId() {
             return listaSerie.Count;
         }
     }
